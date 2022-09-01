@@ -1,3 +1,0 @@
-This is a branch merge test check
-hello666 20220816
-123

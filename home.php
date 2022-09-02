@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['id']) && isset($_SESSION['username'])){
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +12,7 @@
         <link rel="stylesheet" href="design.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Zen+Loop:ital@1&display=swap" rel="stylesheet">
-        <title>Login Page</title>
+        <title>Home</title>
     </head>
     <body>
         <!-- navigation bar -->
@@ -33,20 +40,10 @@
         <!-- navigation bar -->
 
         <div class="content">
-            <form action="login-verification.php" method="post">
-                <h2>Login</h2>
-                <?php if (isset($_GET['error'])){ ?>
-                    <p class="error"><?php echo $_GET['error']; ?></p>
-                <?php } ?>
-                <label>User Name</label>
-                <input type="text" name="uname" placeholder="User Name"> <br>
-
-                <label>Password</label>
-                <input type="password" name="password" placeholder="Password"> <br>
-
-                <button type="submit">Login</button>
-            </form>
+            <h2>Hello, <?php echo $_SESSION['name']; ?> </h2>
         </div>
+
+        <a href = "logout.php">Logout</a>
 
 
     <?php
@@ -55,3 +52,11 @@
     </body>
     
 </html>
+
+<?php
+    }
+    else{
+        header("Location: login.php");
+        exit();
+    }
+?>

@@ -13,7 +13,7 @@
             <h1>Weather</h1>
             <div class="container">
                 <div class="hyperlinks">
-                        <a href="#">Home</a>
+                        <a href="index.php">Home</a>
                         <!--<a href="#">Daily</a>       probably dont need as home can replace it or rename home to daily-->
                         <a href="#">10-Days</a>
                         <a href="#">Monthly</a>
@@ -25,7 +25,7 @@
                     <div class = "dropdown-content">
                         <a href="login.php">Login</a>
                         <a href="#">Signup</a>
-                        <a href="#">Log out</a>
+                        <a href="logout.php">Log out</a>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="design.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Zen+Loop:ital@1&display=swap" rel="stylesheet">
-        <title>Main Page</title>
+        <title>Login Page</title>
     </head>
     <body>
         <!-- navigation bar -->
@@ -19,7 +19,7 @@
                         <a href="#">Monthly</a>
                         <a href="#">Weather Map</a>
                         <a href="#">Feedback</a>
-                </div> 
+                </div>
                 <div class ="dropdown">
                     <button class ="dropbtn"><span class="material-symbols-outlined">person</span></button>
                     <div class = "dropdown-content">
@@ -31,6 +31,23 @@
             </div>
         </nav>
         <!-- navigation bar -->
+
+        <div class="content">
+            <form action="login-verification.php" method="post">
+                <h2>Login</h2>
+                <?php if (isset($_GET['error'])){ ?>
+                    <p class="error"><?php echo $_GET['error']; ?></p>
+                <?php } ?>
+                <label>User Name</label>
+                <input type="text" name="uname" placeholder="User Name"> <br>
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password"> <br>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
 
     <?php
         echo "My first PHP script!";

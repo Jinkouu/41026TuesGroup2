@@ -63,6 +63,15 @@ label{
     margin: 20px auto;
 }
 
+.success{
+    background: #b1ecc8;
+    color:#068139;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
 button{
     float: right;
     background:#f1f1f1;
@@ -174,4 +183,13 @@ nav{
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: #bee3db;
+}
+
+.account-button{
+    color: #6579b3;
+    font-weight: 540;
+    text-decoration: none;
+    transition: 0.4s;
+    padding: 10px 15px;
+    position: relative;
 }

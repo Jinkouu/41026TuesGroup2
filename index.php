@@ -24,7 +24,7 @@
                     <button class ="dropbtn"><span class="material-symbols-outlined">person</span></button>
                     <div class = "dropdown-content">
                         <a href="login.php">Login</a>
-                        <a href="#">Signup</a>
+                        <a href="register.php">Signup</a>
                         <a href="logout.php">Log out</a>
                     </div>
                 </div>

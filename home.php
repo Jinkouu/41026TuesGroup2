@@ -31,8 +31,8 @@
                     <button class ="dropbtn"><span class="material-symbols-outlined">person</span></button>
                     <div class = "dropdown-content">
                         <a href="login.php">Login</a>
-                        <a href="#">Signup</a>
-                        <a href="logout.php"">Log out</a>
+                        <a href="register.php">Signup</a>
+                        <a href="logout.php">Log out</a>
                     </div>
                 </div>
             </div>
@@ -40,15 +40,10 @@
         <!-- navigation bar -->
 
         <div class="content">
-            <h2>Hello, <?php echo $_SESSION['name']; ?> </h2>
+            <h2>Hello, <?php echo $_SESSION['name']; ?> </h2> <br>
+            <a href = "logout.php" class="account-button">Logout</a>
         </div>
 
-        <a href = "logout.php">Logout</a>
-
-
-    <?php
-        echo "My first PHP script!";
-    ?>
     </body>
     
 </html>

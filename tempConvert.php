@@ -7,9 +7,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Zen+Loop:ital@1&display=swap" rel="stylesheet">
         <title>Main Page</title>
         <style>
-            .temperature{
-                padding-top: 80px;
-                float: right;
+            .placement{
+                padding-top: 100px;
             }
             .outcome{
                 padding-left: 830px;
@@ -43,32 +42,33 @@
                 </div>
             </nav>
         </header>
-        <!--navigation bar -->
-        <section class="temperature">
-            <!-- temperature conversion -->
-            <form name="Convert" method="POST" action="tempConvert.php">
-
-                <table>
-                    <tr>
-                        <td>Quick Temp. Convert!</td>
-                        <td><input type="text" placeholder="Enter Here" name="valueConvert" id="valueConvert"></td>
-                    </tr>
-                    <tr>
-                        <td>Convert to:</td>
-                        <td><select name="convertType" id="convertType" size="1">
-                                <option disabled> Select a measurement type</option>
-                                <option value="celsius">Celsius</option>
-                                <option value="fahrenheit">Fahrenheit</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" name="btnConvert" id="btnConvert" value="Convert"></td>
-                        <td><input type="reset" name="btnReset" id="btnReset" value="Clear"></td>
-                    </tr>
-                </table>
-            <!-- temperature conversion -->
+        <!--navigation bar --> 
+        <section>
+            <p class="placement"> Conversion results:
+        </p>
         </section>
     </body>
-    
 </html>
+
+<?php
+function Convert($valueConvert, $convertType)
+{
+    if ($convertType == "fahrenheit") {
+        $conversion = ((9 / 5) * $valueConvert) + (32);
+    } else if ($convertType == "celsius") {
+        $conversion = ($valueConvert - 32) * (5 / 9);
+    }
+    return $conversion;
+}
+
+//if(isset($valueConvert)||isset($convertType)){
+    $valueConvert = $_POST['valueConvert'];
+    $convertType = $_POST['convertType'];
+    $conversion = Convert($valueConvert, $convertType);
+    if($convertType == "fahrenheit"){
+        echo "<class='outcome'>$valueConvert celsius. In fahrenheit, that is $conversion degrees!";
+    }
+    elseif ($convertType == "celsius"){
+        echo "<class='outcome'>$valueConvert fahrenheit. In celsius, that is $conversion degrees!";
+    }
+

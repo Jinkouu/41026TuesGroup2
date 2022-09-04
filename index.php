@@ -1,3 +1,40 @@
+<?php
+if(array_key_exists('submit', $_GET)){
+    //checking if input is empty
+    if(!$_GET['city']) {
+        $error = "Input field is empty";
+    }
+    if ($_GET['city']){
+        $apiData = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".
+            $_GET['city']."&appid=3794141fe0cac15a9225a73d70d21ce8");
+        echo "$apiData";
+        $weather_array =json_decode($apiData, true);
+        if($weather_array['cod'] == 200) {
+            //C= K - 273.15
+            $tempCelsius = $weather_array['main']['temp'] - 273;
+
+            $weather = " <b> Cloudness: </b> " . $weather_array['clouds']['all'] . "% <br>";
+            date_default_timezone_set('Australia/Sydney');
+            $weather .= " <b> Weather Condition: </b> " . $weather_array['weather']['0']
+                ['description'] . "<br>";
+            $sunrise = $weather_array['sys']['sunrise'];
+            $weather .= "<b>Sunrise : </b>" . date("F j, Y, g:i a", $sunrise) . "<br>";
+            $weather .= "<b>Current Time : </b>" . date("F j, Y, g:i a"). "<br>";
+            $weather .= " <b> Atmosperic Pressure: </b> " . $weather_array['main']['pressure'] .
+                "hPa <br>";
+            $weather .= " <b> Wind Speed: </b> " . $weather_array['wind']['speed'] . "meter/sec<br>
+           ";
+            $weather .= "<b>" . $weather_array['name'] . "," . $weather_array['sys']['country'] . ":
+         " . intval($tempCelsius) . "&deg;C</b> <br> ";
+
+        }else{
+            $error = "Could not find city";
+        }
+
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,12 +45,9 @@
         <title>Main Page</title>
         <style>
             .temperature{
-                padding-top: 80px;
+                padding-top: 40px;
                 float: right;
-            }
-            .outcome{
-                padding-left: 830px;
-                float: left;
+                padding-right: 40px;
             }
 
         </style>
@@ -29,6 +63,7 @@
 
                             <a href="#">10-Days</a>
                             <a href="#">Monthly</a>
+                            <a href="tempConvert.php">Temperature Converter</a>
                             <a href="#">Weather Map</a>
                             <a href="#">Feedback</a>
                     </div>
@@ -41,35 +76,28 @@
                         </div>
                     </div>
                 </div>
-            </nav>
-        </header>
         <!--navigation bar -->
-        <section class="temperature">
-            <!-- temperature conversion -->
-            <form name="Convert" method="POST" action="tempConvert.php">
 
-                <table>
-                    <tr>
-                        <td>Quick Temp. Convert!</td>
-                        <td><input type="text" placeholder="Enter Here" name="valueConvert" id="valueConvert"></td>
-                    </tr>
-                    <tr>
-                        <td>Base unit:</td>
-                        <td><select name="convertType" id="convertType" size="1">
-                                <option disabled> Select a measurement type</option>
-                                <option value="celsius">Celsius</option>
-                                <option value="fahrenheit">Fahrenheit</option>
-                                <option value="kelvin">Kelvin</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" name="btnConvert" id="btnConvert" value="Convert"></td>
-                        <td><input type="reset" name="btnReset" id="btnReset" value="Clear"></td>
-                    </tr>
-                </table>
-            <!-- temperature conversion -->
-        </section>
+                    <form action="" method="GET">
+                    <label for="city">Enter city name</label>
+                    <p><input type="text" name="city" id="city" placeholder="CityName"></p>
+                    <button type="submit" name="submit" class="btn btn-success">Submit Now</button>
+                    <div class="output mt-3">
+
+
+                        <?php
+
+                        if($weather) {
+                            echo '<div class="alert alert-success" role="alert">
+                    '. $weather.'
+                </div>';
+                        }
+                        //                    if($error){
+                        //                        echo '<div class="alert alert-danger" role="alert">
+                        //                    '. $error.'
+                        //                </div>';
+                        //                    }
+                        ?>
+        </nav>
     </body>
-    
 </html>

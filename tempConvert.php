@@ -10,6 +10,9 @@
             .placement{
                 padding-top: 100px;
             }
+            .drop{
+                padding-top: 800px;
+            }
         </style>
     </head>
     <body>
@@ -23,6 +26,7 @@
 
                             <a href="#">10-Days</a>
                             <a href="#">Monthly</a>
+                            <a href="tempConvert.php">Temperature Converter</a>
                             <a href="#">Weather Map</a>
                             <a href="#">Feedback</a>
                     </div>
@@ -38,9 +42,29 @@
             </nav>
         </header>
         <!--navigation bar --> 
-        <section>
-            <p class="placement"> Conversion results:             <a href="index.php">Return</a>
-        </p>
+        <section class="placement">
+
+        <form name="Convert" method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <table>
+                    <tr>
+                        <td>Quick Temp. Convert!</td>
+                        <td><input type="text" placeholder="Enter Here" name="valueConvert" id="valueConvert"></td>
+                    </tr>
+                    <tr>
+                        <td>Base unit:</td>
+                        <td><select name="convertType" id="convertType" size="1">
+                                <option disabled> Select a measurement type</option>
+                                <option value="celsius">Celsius</option>
+                                <option value="fahrenheit">Fahrenheit</option>
+                                <option value="kelvin">Kelvin</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name="btnConvert" id="btnConvert" value="Convert"></td>
+                        <td><input type="reset" name="btnReset" id="btnReset" value="Clear"></td>
+                    </tr>
+                </table>
         </section>
     </body>
 </html>
@@ -95,17 +119,18 @@ function getKelvin($valueConvert, $convertType) {
 }
 
 //if(isset($valueConvert)||isset($convertType)){
-    $valueConvert = $_POST['valueConvert'];
-    $convertType = $_POST['convertType'];
-    //$conversion = Convert($valueConvert, $convertType);
-    $Fah = getFahrenheit($valueConvert, $convertType);
-    $Cel = getCelsius($valueConvert, $convertType);
-    $Kel = getKelvin($valueConvert, $convertType);
-    //if($convertType == "fahrenheit"){
-      //  echo "$valueConvert celsius. In fahrenheit, that is $conversion degrees!";
-    //}
-    //elseif ($convertType == "celsius"){
-        //echo "$valueConvert fahrenheit. In celsius, that is $conversion degrees!";
-    // }
-    echo "Your units: $Fah fahrenheit, $Cel celsius and $Kel kelvin!";
+
+    if(isset($_POST['valueConvert'])){
+            $valueConvert = $_POST['valueConvert'];
+            $convertType = $_POST['convertType'];
+            $Fah = getFahrenheit($valueConvert, $convertType);
+            $Cel = getCelsius($valueConvert, $convertType);
+            $Kel = getKelvin($valueConvert, $convertType);
+
+            echo "Your units: $Fah fahrenheit, $Cel celsius and $Kel kelvin!";
+    }
+    elseif(empty($valueConvert)) {
+            echo "insert numbers!";
+    }
+       
 

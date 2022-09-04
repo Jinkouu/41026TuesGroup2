@@ -193,3 +193,12 @@ nav{
     padding: 10px 15px;
     position: relative;
 }
+
+.temperature{
+    padding-top: 80px;
+    float: right;
+}
+.outcome{
+    padding-left: 830px;
+    float: left;
+}

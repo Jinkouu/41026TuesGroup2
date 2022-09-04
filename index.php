@@ -13,7 +13,6 @@ if(array_key_exists('submit', $_GET)){
             //C= K - 273.15
             $tempCelsius = $weather_array['main']['temp'] - 273;
 
-
             $weather = " <b> Cloudness: </b> " . $weather_array['clouds']['all'] . "% <br>";
             date_default_timezone_set('Australia/Sydney');
             $weather .= " <b> Weather Condition: </b> " . $weather_array['weather']['0']
@@ -28,16 +27,14 @@ if(array_key_exists('submit', $_GET)){
             $weather .= "<b>" . $weather_array['name'] . "," . $weather_array['sys']['country'] . ":
          " . intval($tempCelsius) . "&deg;C</b> <br> ";
 
-
         }else{
             $error = "Could not find city";
         }
 
-
     }
 }
 ?>
-//this is a test to be pushed
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,12 +45,9 @@ if(array_key_exists('submit', $_GET)){
         <title>Main Page</title>
         <style>
             .temperature{
-                padding-top: 80px;
+                padding-top: 40px;
                 float: right;
-            }
-            .outcome{
-                padding-left: 830px;
-                float: left;
+                padding-right: 40px;
             }
 
         </style>
@@ -70,6 +64,7 @@ if(array_key_exists('submit', $_GET)){
 
                             <a href="#">10-Days</a>
                             <a href="#">Monthly</a>
+                            <a href="tempConvert.php">Temperature Converter</a>
                             <a href="#">Weather Map</a>
                             <a href="#">Feedback</a>
                     </div>
@@ -82,12 +77,12 @@ if(array_key_exists('submit', $_GET)){
                         </div>
                     </div>
                 </div>
-                <form action="" method="GET">
+        <!--navigation bar -->
+
+                    <form action="" method="GET">
                     <label for="city">Enter city name</label>
                     <p><input type="text" name="city" id="city" placeholder="CityName"></p>
                     <button type="submit" name="submit" class="btn btn-success">Submit Now</button>
-
-
                     <div class="output mt-3">
 
 
@@ -103,28 +98,7 @@ if(array_key_exists('submit', $_GET)){
                         //                    '. $error.'
                         //                </div>';
                         //                    }
-                        function tempConvert($valueConvert, $convertType)
-                        {
-                            if($convertType == "fahrenheit"){
-                                $conversion = ((9/5) * $valueConvert) + (32);
-                            }
-                            else if ($convertType == "celsius"){
-                                $conversion = ($valueConvert - 32) * (5/9);
-                            }
-                            return $conversion;
-                        }
-
-                        $valueConvert = $_POST['valueConvert'];
-                        $convertType = $_POST['convertType'];
-                        $conversion = tempConvert($valueConvert, $convertType);
-                        if($convertType == "fahrenheit"){
-                            echo "<span class='outcome'>$valueConvert celsius. In fahrenheit, that is $conversion degrees!";
-                        }
-                        elseif ($convertType == "celsius"){
-                            echo "<span class='outcome'>$valueConvert fahrenheit. In celsius, that is $conversion degrees!";
-                        }
-
-
-
                         ?>
-
+        </nav>
+    </body>
+</html>

@@ -54,11 +54,12 @@
                         <td><input type="text" placeholder="Enter Here" name="valueConvert" id="valueConvert"></td>
                     </tr>
                     <tr>
-                        <td>Convert to:</td>
+                        <td>Base unit:</td>
                         <td><select name="convertType" id="convertType" size="1">
                                 <option disabled> Select a measurement type</option>
                                 <option value="celsius">Celsius</option>
                                 <option value="fahrenheit">Fahrenheit</option>
+                                <option value="kelvin">Kelvin</option>
                             </select>
                         </td>
                     </tr>

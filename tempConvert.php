@@ -10,11 +10,6 @@
             .placement{
                 padding-top: 100px;
             }
-            .outcome{
-                padding-left: 830px;
-                float: left;
-            }
-
         </style>
     </head>
     <body>
@@ -44,31 +39,73 @@
         </header>
         <!--navigation bar --> 
         <section>
-            <p class="placement"> Conversion results:
+            <p class="placement"> Conversion results:             <a href="index.php">Return</a>
         </p>
         </section>
     </body>
 </html>
 
 <?php
+/*
 function Convert($valueConvert, $convertType)
 {
     if ($convertType == "fahrenheit") {
-        $conversion = ((9 / 5) * $valueConvert) + (32);
+       $conversion = ((9 / 5) * $valueConvert) + (32);
     } else if ($convertType == "celsius") {
         $conversion = ($valueConvert - 32) * (5 / 9);
     }
     return $conversion;
+}*/
+
+
+function getFahrenheit($valueConvert, $convertType) {
+    if($convertType == "fahrenheit") {
+        return $valueConvert;
+    }
+    elseif($convertType == "celsius"){
+        return (($valueConvert * (9/5)) + (32));
+    }
+    elseif($convertType == "kelvin"){
+        return ((($valueConvert - 273.15) * (9/5)) + (32));
+    }
+}
+
+function getCelsius($valueConvert, $convertType) {
+    if($convertType == "celsius") {
+        return $valueConvert;
+    }
+    elseif($convertType == "fahrenheit"){
+        return (($valueConvert - 32) * (5/9));
+    }
+    elseif($convertType == "kelvin"){
+        return ($valueConvert - 273.15);
+    }
+}
+
+function getKelvin($valueConvert, $convertType) {
+    if($convertType == "kelvin") {
+        return $valueConvert;
+    }
+    elseif($convertType == "celsius"){
+        return ($valueConvert + 273.15);
+    }
+    elseif($convertType == "fahrenheit"){
+        return ((($valueConvert - 32) * (5 / 9))+(273.15));
+    }
 }
 
 //if(isset($valueConvert)||isset($convertType)){
     $valueConvert = $_POST['valueConvert'];
     $convertType = $_POST['convertType'];
-    $conversion = Convert($valueConvert, $convertType);
-    if($convertType == "fahrenheit"){
-        echo "<class='outcome'>$valueConvert celsius. In fahrenheit, that is $conversion degrees!";
-    }
-    elseif ($convertType == "celsius"){
-        echo "<class='outcome'>$valueConvert fahrenheit. In celsius, that is $conversion degrees!";
-    }
+    //$conversion = Convert($valueConvert, $convertType);
+    $Fah = getFahrenheit($valueConvert, $convertType);
+    $Cel = getCelsius($valueConvert, $convertType);
+    $Kel = getKelvin($valueConvert, $convertType);
+    //if($convertType == "fahrenheit"){
+      //  echo "$valueConvert celsius. In fahrenheit, that is $conversion degrees!";
+    //}
+    //elseif ($convertType == "celsius"){
+        //echo "$valueConvert fahrenheit. In celsius, that is $conversion degrees!";
+    // }
+    echo "Your units: $Fah fahrenheit, $Cel celsius and $Kel kelvin!";
 

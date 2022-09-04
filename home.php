@@ -21,7 +21,7 @@
             <div class="container">
                 <div class="hyperlinks">
                         <a href="index.php">Home</a>
-                        <!--<a href="#">Daily</a>       probably dont need as home can replace it or rename home to daily-->
+                        <a href="daily.php">Daily</a>       
                         <a href="#">10-Days</a>
                         <a href="#">Monthly</a>
                         <a href="#">Weather Map</a>

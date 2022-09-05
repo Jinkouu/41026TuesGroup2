@@ -202,3 +202,20 @@ nav{
     padding-left: 830px;
     float: left;
 }
+
+.box {
+    display: flex;    
+    justify-content: center;            
+    align-items: center;  
+    background-color: white;
+}
+
+.submit {
+    background-color: #79a7ed;
+    color: white;
+    font-size:22px;
+    padding: 16px;
+    margin: 8px;
+    border: 0px;
+    width: 300px;
+}

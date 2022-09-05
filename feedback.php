@@ -77,5 +77,7 @@
 		</table>
 	</form>
 	</div>
+	 <p align="center"><a href="realtimeweather.php">view real-time weather </a> </p>
+	 <p align="center"><a href="feedbackmanager.php">feedbackmanager </a> </p>
 </body>
 </html>

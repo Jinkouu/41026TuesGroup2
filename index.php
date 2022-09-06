@@ -19,7 +19,7 @@ if(array_key_exists('submit', $_GET)){
             $savedTime = $t;
             $serverTime = ini_get('date.timezone');
             $time = strtotime($savedTime . $serverTime);
-            $dateInLocal = date("Y-m-d H:i:s", $time);
+            $dateInLocal = date("Y-m-d", $time);
 
 
             $weather = " <b> Cloudness: </b> " . $weather_array['clouds']['all'] . "% <br>";
@@ -28,7 +28,7 @@ if(array_key_exists('submit', $_GET)){
                 ['description'] . "<br>";
             $sunrise = $weather_array['sys']['sunrise'];
             $weather .= "<b>Sunrise : </b>" . date("F j, Y, g:i a", $sunrise) . "<br>";
-            $weather .= "<b>Current Time : </b>" .$dateInLocal. "<br>";
+            $weather .= "<b>Current Date : </b>" .$dateInLocal. "<br>";
             $weather .= " <b> Atmosperic Pressure: </b> " . $weather_array['main']['pressure'] .
                 "hPa <br>";
             $weather .= " <b> Wind Speed: </b> " . $weather_array['wind']['speed'] . "meter/sec<br>

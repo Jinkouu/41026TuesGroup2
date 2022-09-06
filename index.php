@@ -13,6 +13,14 @@ if(array_key_exists('submit', $_GET)){
             //C= K - 273.15
             $tempCelsius = $weather_array['main']['temp'] - 273;
             $feelsLikeTempCelsius = $weather_array['main']['feels_like'] - 273;
+            $currentTime = $weather_array['dt'];
+            $uep= $currentTime;
+            $t = date('r',$uep);
+            $savedTime = $t;
+            $serverTime = ini_get('date.timezone');
+            $time = strtotime($savedTime . $serverTime);
+            $dateInLocal = date("Y-m-d H:i:s", $time);
+
 
             $weather = " <b> Cloudness: </b> " . $weather_array['clouds']['all'] . "% <br>";
             date_default_timezone_set('Australia/Sydney');
@@ -20,7 +28,7 @@ if(array_key_exists('submit', $_GET)){
                 ['description'] . "<br>";
             $sunrise = $weather_array['sys']['sunrise'];
             $weather .= "<b>Sunrise : </b>" . date("F j, Y, g:i a", $sunrise) . "<br>";
-            $weather .= "<b>Current Time : </b>" . date("F j, Y, g:i a"). "<br>";
+            $weather .= "<b>Current Time : </b>" .$dateInLocal. "<br>";
             $weather .= " <b> Atmosperic Pressure: </b> " . $weather_array['main']['pressure'] .
                 "hPa <br>";
             $weather .= " <b> Wind Speed: </b> " . $weather_array['wind']['speed'] . "meter/sec<br>

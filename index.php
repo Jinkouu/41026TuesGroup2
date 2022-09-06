@@ -1,6 +1,6 @@
 <?php
 if(array_key_exists('submit', $_GET)){
-    //checking if input is empty
+    //checking if input is empty through get
     if(!$_GET['city']) {
         $error = "Input field is empty";
     }
@@ -12,6 +12,7 @@ if(array_key_exists('submit', $_GET)){
         if($weather_array['cod'] == 200) {
             //C= K - 273.15
             $tempCelsius = $weather_array['main']['temp'] - 273;
+            $feelsLikeTempCelsius = $weather_array['main']['feels_like'] - 273;
 
             $weather = " <b> Cloudness: </b> " . $weather_array['clouds']['all'] . "% <br>";
             date_default_timezone_set('Australia/Sydney');
@@ -26,6 +27,7 @@ if(array_key_exists('submit', $_GET)){
            ";
             $weather .= "<b>" . $weather_array['name'] . "," . $weather_array['sys']['country'] . ":
          " . intval($tempCelsius) . "&deg;C</b> <br> ";
+            $weather .= " <b> Feels Like: </b> " . intval($feelsLikeTempCelsius)  . "&deg;C</b> <br> ";
 
         }else{
             $error = "Could not find city";
@@ -81,24 +83,31 @@ if(array_key_exists('submit', $_GET)){
 
                     <form action="" method="GET">
                     <label for="city">Enter city name</label>
-                    <p><input type="text" name="city" id="city" placeholder="CityName"></p>
+                    <p><input type="text" name="city" id="city" placeholder="City Name"></p>
                     <button type="submit" name="submit" class="btn btn-success">Submit Now</button>
+<!--                        <img src="icons/${icon}.png">;-->
+<!---->
+<!--                    <div class="weather-icon"><img src="icons/unknown.png" /></div>-->
                     <div class="output mt-3">
-
-
                         <?php
+                        $var = 'let locationIcon = document.querySelector(\'.weather-icon\');
+                                const {icon} = data.weather[0]';
 
-                        if($weather) {
-                            echo '<div class="alert alert-success" role="alert">
-                    '. $weather.'
-                </div>';
-                        }
-                        //                    if($error){
-                        //                        echo '<div class="alert alert-danger" role="alert">
-                        //                    '. $error.'
-                        //                </div>';
-                        //                    }
+                        echo $weather;
+//                        if($weather)
+//                        {
+//                            echo '<div class="alert alert-success" role="alert">
+//                    '. $weather.'
+//                        </div>';
+//                        }
+//                        if($error)
+//                        {
+//                        echo '<div class="alert alert-danger" role="alert">
+//                        '. $error.'
+//                       </div>';
+//                        }
                         ?>
+                    </div>
         </nav>
     </body>
 </html>

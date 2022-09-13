@@ -13,12 +13,13 @@
             <h1>Weather</h1>
             <div class="container">
                 <div class="hyperlinks">
-                        <a href="index.php">Home</a>
-                        <!--<a href="#">Daily</a>       probably dont need as home can replace it or rename home to daily-->
-                        <a href="#">10-Days</a>
-                        <a href="#">Monthly</a>
-                        <a href="#">Weather Map</a>
-                        <a href="#">Feedback</a>
+                    <a href="index.php">Home</a>
+                    <a href="daily.php">Daily</a>
+                    <a href="#">10-Days</a>
+                    <a href="#">Monthly</a>
+                    <a href="tempConvert.php">Temperature Converter</a>
+                    <a href="#">Weather Map</a>
+                    <a href="feedback.php">Feedback</a>
                 </div>
                 <div class ="dropdown">
                     <button class ="dropbtn"><span class="material-symbols-outlined">person</span></button>

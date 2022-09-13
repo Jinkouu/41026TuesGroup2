@@ -73,7 +73,6 @@ if(array_key_exists('submit', $_GET)){
                     <div class="hyperlinks">
                             <a href="index.php">Home</a>
                             <a href="daily.php">Daily</a>
-
                             <a href="#">10-Days</a>
                             <a href="#">Monthly</a>
                             <a href="tempConvert.php">Temperature Converter</a>

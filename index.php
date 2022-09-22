@@ -76,7 +76,7 @@ if(array_key_exists('submit', $_GET)){
                             <a href="#">10-Days</a>
                             <a href="#">Monthly</a>
                             <a href="tempConvert.php">Temperature Converter</a>
-                            <a href="#">Weather Map</a>
+                            <a href="weathermap.php">Weather Map</a>
                             <a href="feedback.php">Feedback</a>
                     </div>
                     <div class ="dropdown">

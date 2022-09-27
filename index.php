@@ -1,10 +1,36 @@
 <?php
+session_start();
+?>
+<?php
 if(array_key_exists('submit', $_GET)){
     //checking if input is empty through get
     if(!$_GET['city']) {
         $error = "Input field is empty";
     }
     if ($_GET['city']){
+        if(!$_SESSION["first"]){
+            $_SESSION["first"] = $_GET['city'];
+        }
+        else if(!$_SESSION["second"]){
+            $_SESSION["second"] = $_GET['city'];
+        }
+        else if(!$_SESSION["third"]){
+            $_SESSION["third"] = $_GET['city'];
+        }
+        else if(!$_SESSION["fourth"]){
+            $_SESSION["fourth"] = $_GET['city'];
+        }
+        else if(!$_SESSION["fifth"]){
+            $_SESSION["fifth"] = $_GET['city'];
+        }
+        else if($_SESSION["fifth"]){
+            $_SESSION["first"] = $_SESSION["second"];
+            $_SESSION["second"] = $_SESSION["third"];
+            $_SESSION["third"] = $_SESSION["fourth"];
+            $_SESSION["fourth"] = $_SESSION["fifth"];
+            $_SESSION["fifth"] = $_GET['city'];
+        }
+
         $apiData = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".
             $_GET['city']."&appid=3794141fe0cac15a9225a73d70d21ce8");
         echo "$apiData";
@@ -46,7 +72,6 @@ if(array_key_exists('submit', $_GET)){
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,6 +85,9 @@ if(array_key_exists('submit', $_GET)){
                 padding-top: 40px;
                 float: right;
                 padding-right: 40px;
+            }
+            .bottom{
+                padding-top: 450px;
             }
 
         </style>
@@ -90,7 +118,7 @@ if(array_key_exists('submit', $_GET)){
                 </div>
         <!--navigation bar -->
 
-                    <form action="daily.php" method="GET">
+                    <form action="index.php" method="GET">
                     <label for="city">Enter city name</label>
                     <p><input type="text" name="city" id="city" placeholder="City Name"></p>
                     <button type="submit" name="submit" class="btn btn-success">Submit Now</button>
@@ -118,5 +146,21 @@ if(array_key_exists('submit', $_GET)){
                         ?>
                     </div>
         </nav>
+
+        <section>
+            <h2 class="bottom">Recent Searches:</h2>
+            <?php 
+            if (isset($_SESSION["first"]))
+                echo $_SESSION["first"]; echo ", ";
+            if (isset($_SESSION["second"]))
+                echo $_SESSION["second"]; echo ", ";
+            if (isset($_SESSION["third"]))
+                echo $_SESSION["third"]; echo ", ";
+            if (isset($_SESSION["fourth"]))
+                echo $_SESSION["fourth"]; echo ", ";
+            if (isset($_SESSION["fifth"]))
+                echo $_SESSION["fifth"];
+            ?>
+        </section>
     </body>
 </html>

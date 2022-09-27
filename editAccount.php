@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="design.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Zen+Loop:ital@1&display=swap" rel="stylesheet">
-        <title>Home</title>
+        <title>Change Account Details</title>
     </head>
     <body>
         <!-- navigation bar -->
@@ -33,29 +33,48 @@
                     <div class = "dropdown-content">
                         <a href="login.php">Login</a>
                         <a href="register.php">Signup</a>
-                        <?php if(isset($_SESSION['id'])) { ?>
                         <a href="logout.php">Log out</a>
-                            <?php } ?>
                     </div>
                 </div>
             </div>
         </nav>
         <!-- navigation bar -->
 
-        <div class="homeContent">
-            <h2>Hello, <?php echo $_SESSION['name']; ?> </h2> 
-            
-            <a href = "editAccount.php" class="account-button">Edit Account Details</a>
-            
-            <?php if ($_SESSION['level'] = "admin"){ ?>
-                <a href = "adminPage.php" class="account-button"> Admin Page </a>
-            <?php }?>
+        <div class="content">
+            <form action="editAccountCheck.php" method="post">
+                <h2>Change Account Details</h2>
+                <?php if (isset($_GET['error'])){ ?>
+                    <p class="error"><?php echo $_GET['error']; ?></p>
+                <?php } ?>
 
-            <a href = "logout.php" class="account-button">Logout</a>
-           
+                <?php if (isset($_GET['success'])){ ?>
+                    <p class="success"><?php echo $_GET['success']; ?></p>
+                <?php } ?>
+                
+                <label>Name</label>
+                <?php if (isset($_SESSION['name'])){ ?>
+                    <input type="text" name="name" placeholder="Name" value="<?php echo $_SESSION['name']; ?>"> <br>
+                <?php } 
+                else{ ?>
+                    <input type="text" name="name" placeholder="Name"> <br>
+                <?php } ?>
 
+                <label>Old Password</label>
+     	        <input type="password" name="op" placeholder="Old Password"> <br>
 
+                <label>New Password</label>
+                <input type="password" name="np" placeholder="New Password"> <br>
+
+                <label>Confirm New Password</label>
+                <input type="password" name="c_np" placeholder="Confirm New Password"> <br>
+
+                <button type="submit">Change</button>
+                <a href="home.php" class="account-button"> Home </a>
+                
+                
+            </form>
         </div>
+
 
     </body>
     
@@ -64,7 +83,7 @@
 <?php
     }
     else{
-        header("Location: login.php");
+        header("Location: home.php");
         exit();
     }
 ?>

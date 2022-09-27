@@ -52,7 +52,7 @@ if(isset($_POST['uname']) && isset($_POST['password']) && isset($_POST['name']) 
             exit();
         }
         else{
-            $sql2 = "INSERT INTO users(username, password, name) VALUES('$uname', '$pass', '$name')";
+            $sql2 = "INSERT INTO users(username, password, name, level) VALUES('$uname', '$pass', '$name', 'user')";
             $result2 = mysqli_query($conn, $sql2);
             if($result2){
                 header("Location: register.php?success=Your account has been created successfully&$user_data");

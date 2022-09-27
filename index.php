@@ -37,6 +37,8 @@ if(array_key_exists('submit', $_GET)){
            ";
             $weather .= "<b>" . $weather_array['name'] . "," . $weather_array['sys']['country'] . ":
          " . intval($tempCelsius) . "&deg;C</b> <br> ";
+
+
             $weather .= " <b> Feels Like: </b> " . intval($feelsLikeTempCelsius)  . "&deg;C</b> <br> ";
 
         }else{
@@ -67,7 +69,9 @@ if(array_key_exists('submit', $_GET)){
     <body>
         <!-- navigation bar -->
         <header>
-            <nav>
+
+            <nav style="background-color:<?=($tempCelsius>20 )?'ffff00':(($tempCelsius<5)?'4682B4':'')?>">
+
                 <h1>Weather</h1>
                 <div class="container">
                     <div class="hyperlinks">

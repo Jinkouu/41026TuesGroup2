@@ -133,6 +133,27 @@ nav{
     padding: 16px 32px;
     border-bottom: 3px;
 }
+nav.cold{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: #00008b;
+    padding: 16px 32px;
+    border-bottom: 3px;
+}
+
+nav.warm{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: #ffff00;
+    padding: 16px 32px;
+    border-bottom: 3px;
+}
 
 .hyperlinks{
     

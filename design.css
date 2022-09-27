@@ -26,6 +26,27 @@
     text-align: center;
 }
 
+.adminTable {
+    width: 100% !important;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    table-layout: fixed;
+    
+}
+
+table {
+    margin: 0 auto; /* or margin: 0 auto 0 auto */
+    
+  }
+
+
+th{
+    height: 10px;
+    width: fit-content;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -119,6 +140,22 @@ button:hover{
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeContent{
+    background-color: #ffd6ba;
+    position: relative;
+    z-index: 1;
+    margin-top: 200px;
+    width: 70%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     justify-content: center;
     align-items: center;
 }

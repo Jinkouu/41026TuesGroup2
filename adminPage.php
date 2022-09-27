@@ -43,15 +43,38 @@
         <!-- navigation bar -->
 
         <div class="homeContent">
-            <h2>Hello, <?php echo $_SESSION['name']; ?> </h2> 
-            
-            <a href = "editAccount.php" class="account-button">Edit Account Details</a>
-            
-            <?php if ($_SESSION['level'] = "admin"){ ?>
-                <a href = "adminPage.php" class="account-button"> Admin Page </a>
-            <?php }?>
+            <h2>Admin Page</h2> 
 
-            <a href = "logout.php" class="account-button">Logout</a>
+            <form action="adminEdit.php" method="POST">
+                <table class="adminTable">
+                    <tr>
+                        <th> ID </th>
+                        <th> Username </th>
+                        <th> Name </th>
+                        <th> Level </th>
+                        <th> Edit </th>
+                        <th> Delete </th>
+                    </tr>
+                    <?php 
+                        include "db_conn.php";
+                        $sql = "SELECT * FROM users";
+                        $Table = mysqli_query($conn, $sql);
+
+                        while($Row = mysqli_fetch_array($Table)){
+                    ?>
+                    <tr>
+                        <td> <?php echo $Row['id'] ?></td>
+                        <td> <?php echo $Row['username'] ?></td>
+                        <td> <?php echo $Row['name'] ?></td>
+                        <td> <?php echo $Row['level'] ?></td>
+                        <td><input type="submit" name="edit/<?php $Row['id'] ?>" value="Edit"></td>
+                        <td><input type="submit" name="delete/<?php $Row['id'] ?>" value="Delete"></td>
+                    </tr>
+                    <?php } ?>
+                </table>
+            </form>
+
+            <a href = "home.php" class="account-button">Back</a>
            
 
 

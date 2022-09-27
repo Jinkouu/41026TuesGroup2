@@ -106,8 +106,8 @@
 
                             <a href="fiveDays.php">5-Days</a>
                             <a href="#">Monthly</a>
-                            <a href="#">Weather Map</a>
-                            <a href="#">Feedback</a>
+                            <a href="weathermap.php">Weather Map</a>
+                            <a href="feedback.php">Feedback</a>
                     </div>
                    
                 </div>
@@ -138,6 +138,7 @@
             </p>
 
             <div class="icon">
+                
                 <div class="cloud-group">
                     <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
                     <span class="icon-cloud cloud-base shadow-cloud-clip"></span>

@@ -64,8 +64,8 @@
 
                             <a href="fiveDays.php">5-Days</a>
                             <a href="#">Monthly</a>
-                            <a href="#">Weather Map</a>
-                            <a href="#">Feedback</a>
+                            <a href="weathermap.php">Weather Map</a>
+                            <a href="feedback.php">Feedback</a>
                     </div>
                    
                 </div>

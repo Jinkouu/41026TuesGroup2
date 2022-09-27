@@ -90,7 +90,7 @@ if(array_key_exists('submit', $_GET)){
                 </div>
         <!--navigation bar -->
 
-                    <form action="daily.php" method="GET">
+                    <form action="" method="GET">
                     <label for="city">Enter city name</label>
                     <p><input type="text" name="city" id="city" placeholder="City Name"></p>
                     <button type="submit" name="submit" class="btn btn-success">Submit Now</button>

@@ -111,13 +111,19 @@
                     </div>
                    
                 </div>
+                <!--navigation bar -->
+
+                <form action="daily.php" method="GET">
+                    <label for="city">Enter city name</label>
+                    <p><input type="text" name="city" id="city" placeholder="City Name"></p>
+                    <button type="submit" name="submit" class="btn btn-success">Submit Now</button>
             
   </div>
 </div>
       </nav> 
-      <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br><br><br><br><br><br><br>
     <main class="container">
-        <div style="text-align: right;width: 95%"><a href="fiveDays.php?city=<?php echo $_GET['city']?>" style="padding:5px 10px;border:1px solid orange;border-radius: 10px;color: white;background: orange" >5-Day Weather</a></div>
+        <div style="text-align: right;width: 95%"><a href="fiveDays.php?city=<?php echo $_GET['city']?>" style="padding:5px 10px;border:1px solid orange;border-radius: 10px;color: white;background: orange" >5-Days Weather forecast</a></div><br>
 
         <section class="card active">
             <header>
@@ -128,7 +134,7 @@
                 <div class="time"><?php echo date('d/m/Y')?></div>
             </header>
             <p class="card-temp box-highlight">
-               <?php echo intval($weather_array['main']['temp']- 273)?>°C Cloudy
+               <?php echo intval($weather_array['main']['temp']- 273)?>°C <?php echo $v['weather'][0]['main']?>
             </p>
 
             <div class="icon">
@@ -155,7 +161,7 @@
                 </div>
                 <div>
                     <span>Wind</span>
-                    <span>N <?php echo $weather_array['wind']['speed']?>km/h</span>
+                    <span> <?php echo $weather_array['wind']['speed']?>km/h</span>
                 </div>
                 <div>
                     <span>Gusts</span>

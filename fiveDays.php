@@ -62,19 +62,25 @@
                             <a href="index.php">Home</a>
                             <a href="daily.php">Daily</a>
 
-                            <a href="#">10-Days</a>
+                            <a href="fiveDays.php">5-Days</a>
                             <a href="#">Monthly</a>
                             <a href="#">Weather Map</a>
                             <a href="#">Feedback</a>
                     </div>
                    
                 </div>
+                <!--navigation bar -->
+
+                <form action="fiveDays.php" method="GET">
+                    <label for="city">Enter city name</label>
+                    <p><input type="text" name="city" id="city" placeholder="City Name"></p>
+                    <button type="submit" name="submit" class="btn btn-success">Submit Now</button>
             
   </div>
 </div>
       </nav> 
-      <br> <br> <br> <br> <br> <br> <br> <br> 
-        <div style="text-align: right;width: 95%;"><br> <a href="daily.php?city=<?php echo $_GET['city']?>" style="padding:5px 10px;border:1px solid orange;border-radius: 10px;color: white;background: orange" >Daily</a></div>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br><br> <br> <br> <br>
+        <div style="text-align: right;width: 95%;"><br> <a href="daily.php?city=<?php echo $_GET['city']?>" style="padding:5px 10px;border:1px solid orange;border-radius: 10px;color: white;background: orange" >Daily weather forecast</a></div>
       <div style="margin-left: 15%">    
         <h1 style="text-align: left">&nbsp<?php echo $_GET['city']?></h1>
         <?php
@@ -86,10 +92,10 @@
       <h5 style="font-size: 30px;font-weight: 500"><?php echo intval($v['main']['temp']- 273)?>℃</h5>
       <div class="fakeimg"> <?php echo $v['weather'][0]['main']?></div>
       <p ><?php echo $v['weather'][0]['description']?></p>
-      <p>Humidity：<?php echo $v['main']['humidity']?></p>
-      <p>Wind：N <?php echo $v['wind']['speed']?></p>
-      <p>Visibility <?php echo $v['visibility']?></p>
-      <p>Pressure <?php echo $v['main']['pressure']?></p>
+      <p>Humidity：<?php echo $v['main']['humidity']?>%</p>
+      <p>Wind：<?php echo $v['wind']['speed']?>m/s</p>
+      <p>Visibility <?php echo $v['visibility']?>m</p>
+      <p>Pressure <?php echo $v['main']['pressure']?>hpa</p>
       <br>
        <?php 
                 switch ($v['weather'][0]['main']) {

@@ -130,7 +130,12 @@ if(array_key_exists('submit', $_GET)){
                         $var = 'let locationIcon = document.querySelector(\'.weather-icon\');
                                 const {icon} = data.weather[0]';
 
-                        echo $weather;
+                            if(isset($weather)){
+                                echo $weather;
+                            }
+                            else{
+                                echo "Begin Search Above";
+                            }
 //                        if($weather)
 //                        {
 //                            echo '<div class="alert alert-success" role="alert">

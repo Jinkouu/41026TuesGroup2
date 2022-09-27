@@ -23,9 +23,16 @@
                 <div class ="dropdown">
                     <button class ="dropbtn"><span class="material-symbols-outlined">person</span></button>
                     <div class = "dropdown-content">
-                        <a href="login.php">Login</a>
-                        <a href="register.php">Signup</a>
-                        <a href="logout.php">Log out</a>
+						<?php session_start();
+                            if(!isset($_SESSION['id'])) { ?>    
+                                <a href="login.php">Login</a>
+                                <a href="register.php">Signup</a>
+                            <?php } 
+                            else{ ?>
+                                <a href="home.php">Home</a>
+                                <a href="logout.php">Log out</a>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>

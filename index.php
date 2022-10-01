@@ -87,7 +87,7 @@ if(array_key_exists('submit', $_GET)){
                 padding-right: 40px;
             }
             .bottom{
-                padding-top: 450px;
+                padding-top: 380px;
             }
 
         </style>
@@ -155,17 +155,45 @@ if(array_key_exists('submit', $_GET)){
         <section>
             <h2 class="bottom">Recent Searches:</h2>
             <?php 
+
             if (isset($_SESSION["first"]))
-                echo $_SESSION["first"]; echo ", ";
-            if (isset($_SESSION["second"]))
-                echo $_SESSION["second"]; echo ", ";
+                $hold1 = $_SESSION["first"];
+            if (isset($_SESSION["second"]))    
+                $hold2 = $_SESSION["second"];
             if (isset($_SESSION["third"]))
-                echo $_SESSION["third"]; echo ", ";
+                $hold3 = $_SESSION["third"];
             if (isset($_SESSION["fourth"]))
-                echo $_SESSION["fourth"]; echo ", ";
+                $hold4 = $_SESSION["fourth"];
             if (isset($_SESSION["fifth"]))
-                echo $_SESSION["fifth"];
-            ?>
+                $hold5 = $_SESSION["fifth"];
+
+            if (isset($_SESSION["first"])){
+                echo $_SESSION["first"];}
+            if (isset($_SESSION["second"])){
+                echo ", "; echo $_SESSION["second"];}
+            if (isset($_SESSION["third"])){
+                echo ", "; echo $_SESSION["third"];}
+            if (isset($_SESSION["fourth"])){
+                echo ", "; echo $_SESSION["fourth"];}
+            if (isset($_SESSION["fifth"])){
+                echo ", "; echo $_SESSION["fifth"]; }echo nl2br ("\n");
+                ?>
+            
+            <?php if(isset($hold1)) { ?>
+            <a href="index.php?city=<?php echo $hold1 ?>&submit=">Re-search 1</a>
+            <?php } ?>
+            <?php if(isset($hold2)) { ?>
+            - <a href="index.php?city=<?php echo $hold2 ?>&submit=">Re-search 2</a>
+            <?php } ?>
+            <?php if(isset($hold3)) { ?>
+            - <a href="index.php?city=<?php echo $hold3 ?>&submit=">Re-search 3</a>
+            <?php } ?>
+            <?php if(isset($hold4)) { ?>
+            - <a href="index.php?city=<?php echo $hold4 ?>&submit=">Re-search 4</a>
+            <?php } ?>
+            <?php if(isset($hold5)) { ?>
+            - <a href="index.php?city=<?php echo $hold5 ?>&submit=">Re-search 5</a>
+            <?php } ?>
         </section>
     </body>
 </html>

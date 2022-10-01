@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="/usr/local/Cellar/php/8.1.11/share/php/pear" />
+      <path value="$USER_HOME$/Downloads" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
   <component name="PhpUnit">
     <phpunit_settings>
-      <PhpUnitSettings load_method="PHPUNIT_PHAR" custom_loader_path="" phpunit_phar_path="$USER_HOME$/Downloads/phpunit-6.5.14.phar" />
+      <PhpUnitSettings load_method="PHPUNIT_PHAR" custom_loader_path="" phpunit_phar_path="$USER_HOME$/Downloads/phpunit-9.5.25.phar" />
     </phpunit_settings>
   </component>
 </project>

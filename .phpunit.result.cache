@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"Tests\\colourHeaderChangeTest::testChangeColour":0}}
+{"version":1,"defects":{"Tests\\dailyTest::test01":4,"Tests\\dailyTest::test02":4,"Tests\\fiveDaysTest::test01":4},"times":{"Tests\\colourHeaderChangeTest::testChangeColour":0.013,"Tests\\dailyTest::test01":4.325,"Tests\\dailyTest::test02":4.385,"Tests\\fiveDaysTest::test01":4.546}}

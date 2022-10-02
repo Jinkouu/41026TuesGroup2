@@ -22,10 +22,10 @@
                 <div class="hyperlinks">
                     <a href="index.php">Home</a>
                     <a href="daily.php">Daily</a>
-                    <a href="#">10-Days</a>
+                    <a href="fiveDays.php">5-Days</a>
                     <a href="#">Monthly</a>
                     <a href="tempConvert.php">Temperature Converter</a>
-                    <a href="#">Weather Map</a>
+                    <a href="weathermap.php">Weather Map</a>
                     <a href="feedback.php">Feedback</a>
                 </div>
                 <div class ="dropdown">
@@ -52,7 +52,7 @@
             
             <a href = "editAccount.php" class="account-button">Edit Account Details</a>
             
-            <?php if ($_SESSION['level'] = "admin"){ ?>
+            <?php if ($_SESSION['level'] == "admin"){ ?>
                 <a href = "adminPage.php" class="account-button"> Admin Page </a>
             <?php }?>
 

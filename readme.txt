@@ -17,3 +17,8 @@ Weather App
         - editAccountCheck
         - adminPage
 
+    Jiaxing Liu:
+        -font.css
+        -style.css
+        -daily.php
+        -fiveDays.php

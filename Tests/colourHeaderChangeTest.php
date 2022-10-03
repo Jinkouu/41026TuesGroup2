@@ -10,11 +10,11 @@ class colourHeaderChangeTest extends TestCase
         $colourChange = [];
         $this->assertSame(0, count($colourChange));
 
-        array_push($colourChange, 'foo');
-        $this->assertSame('foo', $colourChange[count($colourChange)-1]);
+        array_push($colourChange, 'temp');
+        $this->assertSame('temp', $colourChange[count($colourChange)-1]);
         $this->assertSame(1, count($colourChange));
 
-        $this->assertSame('foo', array_pop($colourChange));
+        $this->assertSame('temp', array_pop($colourChange));
         $this->assertSame(0, count($colourChange));
     }
 

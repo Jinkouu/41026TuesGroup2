@@ -37,3 +37,7 @@ steps:
   
 - script: ./phpunit
   displayName: 'Run tests with phpunit'
+
+- script: ./vendor/bin/phpunit
+  displayName: 'Run tests with phpunit attempt 2'
+  

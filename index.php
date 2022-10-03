@@ -114,7 +114,7 @@ if(array_key_exists('submit', $_GET)){
                     <div class ="dropdown">
                         <button class ="dropbtn"><span class="material-symbols-outlined">person</span></button>
                         <div class = "dropdown-content">
-                            <?php session_start();
+                            <?php
                             if(!isset($_SESSION['id'])) { ?>    
                                 <a href="login.php">Login</a>
                                 <a href="register.php">Signup</a>

@@ -7,6 +7,7 @@ if(array_key_exists('submit', $_GET)){
     if(!$_GET['city']) {
         $error = "Input field is empty";
     }
+    //if available, grab city into the appropriate last 5 searches 
     if ($_GET['city']){
         if(!$_SESSION["first"]){
             $_SESSION["first"] = $_GET['city'];
@@ -23,6 +24,7 @@ if(array_key_exists('submit', $_GET)){
         else if(!$_SESSION["fifth"]){
             $_SESSION["fifth"] = $_GET['city'];
         }
+        //if all slots are full, shuffle forwards
         else if($_SESSION["fifth"]){
             $_SESSION["first"] = $_SESSION["second"];
             $_SESSION["second"] = $_SESSION["third"];
@@ -161,10 +163,13 @@ if(array_key_exists('submit', $_GET)){
                         ?>
                     </div>
         </nav>
+
         <section>
             <h2 class="bottom">Recent Searches:</h2>
             <?php 
+            //recent searches section
 
+            //gets recent searches and places into a holder variable
             if (isset($_SESSION["first"]))
                 $hold1 = $_SESSION["first"];
             if (isset($_SESSION["second"]))    
@@ -176,6 +181,7 @@ if(array_key_exists('submit', $_GET)){
             if (isset($_SESSION["fifth"]))
                 $hold5 = $_SESSION["fifth"];
 
+            //display recent searches if available
             if (isset($_SESSION["first"])){
                 echo $_SESSION["first"];}
             if (isset($_SESSION["second"])){
@@ -188,7 +194,10 @@ if(array_key_exists('submit', $_GET)){
                 echo ", "; echo $_SESSION["fifth"]; }echo nl2br ("\n");
                 ?>
             
-            <?php if(isset($hold1)) { ?>
+            
+            <?php 
+            //links for the above 
+            if(isset($hold1)) { ?>
             <a href="index.php?city=<?php echo $hold1 ?>&submit=">Re-search 1</a>
             <?php } ?>
             <?php if(isset($hold2)) { ?>

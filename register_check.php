@@ -11,6 +11,7 @@ if(isset($_POST['uname']) && isset($_POST['password']) && isset($_POST['name']) 
         return $data;
     }
 
+    //accounts for bad characters
     $uname = validate($_POST['uname']);
     $pass = validate($_POST['password']);
 
@@ -44,6 +45,7 @@ if(isset($_POST['uname']) && isset($_POST['password']) && isset($_POST['name']) 
         //hashing the password
         $pass = md5($pass);
 
+        //checks if username is already in database
         $sql = "SELECT * FROM users WHERE username = '$uname' ";
         $result = mysqli_query($conn, $sql);
         
@@ -52,6 +54,7 @@ if(isset($_POST['uname']) && isset($_POST['password']) && isset($_POST['name']) 
             exit();
         }
         else{
+            //places new details into the database
             $sql2 = "INSERT INTO users(username, password, name, level) VALUES('$uname', '$pass', '$name', 'user')";
             $result2 = mysqli_query($conn, $sql2);
             if($result2){

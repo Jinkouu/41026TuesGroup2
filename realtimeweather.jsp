@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,7 +11,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Zen+Loop:ital@1&display=swap" rel="stylesheet">
         <title>Feedback</title>
     </head>
-    <body>
+<body>
+
         <!-- navigation bar -->
         <nav>
             <h1>Weather</h1>
@@ -44,25 +49,38 @@
 	<table style="width: 70%" border="1">
 		<tr>
 			<td colspan="8">
-				<form action="search" method="post">
+				<form action="DataQueryServlet" method="post">
 					search: <select name="search">
 						<option>-</option>
 						<option>city</option>
 						<option>firstName</option>
-					</select><input class="inputf" type="text" name="data"> <input type="submit"
-						value="search">
+					</select> data: <input class="inputf" type="text" name="data"> <input type="submit"
+						value="commit">
 				</form>
 			</td>
 		</tr>
 		<tr>
-            <td>time</td>
-			<td>city</td>
+			<td>id</td>
+			<td>first_name</td>
+			<td>last_name</td>
 			<td>cur_temperature</td>
 			<td>cur_weather</td>
+			<td>city</td>
 			<td>photo</td>
-            <td>contribut by</td>
+			<td>create_date</td>
 		</tr>
-
+		<c:forEach items="${list}" var="bean">
+			<tr>
+				<td>${bean.id }</td>
+				<td>${bean.first_name }</td>
+				<td>${bean.last_name }</td>
+				<td>${bean.cur_temperature }</td>
+				<td>${bean.cur_weather }</td>
+				<td>${bean.city }</td>
+				<td><img src="${bean.photo }" width="200px" height="150px"></td>
+				<td>${bean.create_date }</td>
+			</tr>
+		</c:forEach>
 
 	</table>
 </body>

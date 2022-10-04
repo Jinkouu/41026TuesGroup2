@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,41 +54,41 @@
 	<br>
 	<br>
 <h2>Feedback form</h2>
- <div class="box">
-	<form action="index.php" method="post" onsubmit="sub();">
+<div class="box">
+	<form action="DataAddServlet" method="post" onsubmit="sub();"
+		enctype="multipart/form-data">
 		<table>
 			<tr>
-				<td>First Name</td>
+				<td>first_name</td>
 				<td><input class="inputf" type="text" name="first_name"></td>
 			</tr>
 			<tr>
-				<td>Last Name</td>
-				<td><input  class="inputf"type="text" name="last_name"></td>
+				<td>last_name</td>
+				<td><input class="inputf" type="text" name="last_name"></td>
+			</tr>
+			<tr>
+				<td>cur_temperature</td>
+				<td><input class="inputf" type="text" name="cur_temperature"></td>
+			</tr>
+			<tr>
+				<td>cur_weather</td>
+				<td><input class="inputf" type="text" name="cur_weather"></td>
 			</tr>
 			<tr>
 				<td>city</td>
-				<td><input  class="inputf"type="text" name="city"></td>
+				<td><input class="inputf" type="text" name="city"></td>
 			</tr>
-			<tr>
-				<td>current temperature</td>
-				<td><input  class="inputf"type="text" name="cur_temperature"></td>
-			</tr>
-			<tr>
-				<td>current weather</td>
-				<td><input class="inputf" type="text" name="cur_weather"></td>
-			</tr>
-
 			<tr>
 				<td>photo</td>
-				<td><input type="file" name="photo"></td>
+				<td><input class="inputf" type="file" name="photo"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input class="submit" type="submit" value="submit"></td>
+				<td colspan="2"><input class="submit" type="submit" value="commit"></td>
 			</tr>
 		</table>
 	</form>
 	</div>
-	 <p align="center"><a href="realtimeweather.php">view real-time weather </a> </p>
-	 <p align="center"><a href="feedbackmanager.php">feedbackmanager </a> </p>
+	 <p align="center"><a href="<%=request.getContextPath() %>/DataQueryManagerServlet">view real-time weather </a> </p>
+	 <p align="center"><a href="<%=request.getContextPath() %>/DataQueryServlet">feedbackmanager </a> </p>
 </body>
 </html>

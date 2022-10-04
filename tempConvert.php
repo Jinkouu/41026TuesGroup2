@@ -51,6 +51,7 @@
         <!--navigation bar --> 
         <section class="placement">
 
+        <!--temperature converter table-->
         <form name="Convert" method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <table>
                     <tr>
@@ -59,6 +60,7 @@
                     </tr>
                     <tr>
                         <td>Base unit:</td>
+                        <!--select temp type-->
                         <td><select name="convertType" id="convertType" size="1">
                                 <option disabled> Select a measurement type</option>
                                 <option value="celsius">Celsius</option>
@@ -68,6 +70,7 @@
                         </td>
                     </tr>
                     <tr>
+                        <!--select buttons-->
                         <td><input type="submit" name="btnConvert" id="btnConvert" value="Convert"></td>
                         <td><input type="reset" name="btnReset" id="btnReset" value="Clear"></td>
                     </tr>
@@ -88,7 +91,7 @@ function Convert($valueConvert, $convertType)
     return $conversion;
 }*/
 
-
+//fahrenheit converter
 function getFahrenheit($valueConvert, $convertType) {
     if($convertType == "fahrenheit") {
         return $valueConvert;
@@ -101,6 +104,7 @@ function getFahrenheit($valueConvert, $convertType) {
     }
 }
 
+//celsius converter
 function getCelsius($valueConvert, $convertType) {
     if($convertType == "celsius") {
         return $valueConvert;
@@ -113,6 +117,7 @@ function getCelsius($valueConvert, $convertType) {
     }
 }
 
+//kelvin converter
 function getKelvin($valueConvert, $convertType) {
     if($convertType == "kelvin") {
         return $valueConvert;
@@ -126,7 +131,7 @@ function getKelvin($valueConvert, $convertType) {
 }
 
 //if(isset($valueConvert)||isset($convertType)){
-
+    //converts all values when clicked and reports them
     if(isset($_POST['valueConvert'])){
             $valueConvert = $_POST['valueConvert'];
             $convertType = $_POST['convertType'];
@@ -136,6 +141,7 @@ function getKelvin($valueConvert, $convertType) {
 
             echo "Your units: $Fah fahrenheit, $Cel celsius and $Kel kelvin!";
     }
+    //if no click has been made, or just moved to the page, request input
     elseif(empty($valueConvert)) {
             echo "insert numbers!";
     }

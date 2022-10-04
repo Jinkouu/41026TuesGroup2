@@ -11,6 +11,7 @@ if(isset($_POST['uname']) && isset($_POST['password'])) {
         return $data;
     }
 
+    //accounts for bad characters
     $uname = validate($_POST['uname']);
     $pass = validate($_POST['password']);
 
@@ -26,6 +27,7 @@ if(isset($_POST['uname']) && isset($_POST['password'])) {
         //hashing the password
         $pass = md5($pass);
 
+        //checks input against database
         $sql = "SELECT * FROM users WHERE username = '$uname' AND password = '$pass'";
         
         $result = mysqli_query($conn, $sql);
@@ -33,7 +35,7 @@ if(isset($_POST['uname']) && isset($_POST['password'])) {
         if(mysqli_num_rows($result) === 1){
             $row = mysqli_fetch_assoc($result);
             if($row['username'] === $uname && $row['password'] === $pass){
-                //echo "Logged in!";
+                //if the password and username match, validate the session
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['name'] = $row['name'];
                 $_SESSION['id'] = $row['id'];

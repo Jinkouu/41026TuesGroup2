@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,28 +46,40 @@
 	<table style="width: 70%" border="1">
 		<tr>
 			<td colspan="8">
-				<form action="search" method="post">
+				<form action="DataQueryManagerServlet" method="post">
 					search: <select name="search">
 						<option>-</option>
 						<option>city</option>
 						<option>firstName</option>
-					</select><input class="inputf" type="text" name="data"> <input type="submit"
-						value="search">
+					</select> data: <input class="inputf" type="text" name="data"> <input type="submit"
+						value="commit">
 				</form>
 			</td>
 		</tr>
 		<tr>
+			<td>id</td>
 			<td>first_name</td>
 			<td>last_name</td>
-			<td>city</td>
 			<td>cur_temperature</td>
 			<td>cur_weather</td>
+			<td>city</td>
 			<td>photo</td>
-			<td>time</td>
+			<td>create_date</td>
 			<td>delete </td>
 		</tr>
-
-
+		<c:forEach items="${list}" var="bean">
+			<tr>
+				<td>${bean.id }</td>
+				<td>${bean.first_name }</td>
+				<td>${bean.last_name }</td>
+				<td>${bean.cur_temperature }</td>
+				<td>${bean.cur_weather }</td>
+				<td>${bean.city }</td>
+				<td><img src="${bean.photo }" width="200px" height="150px"></td>
+				<td>${bean.create_date }</td>
+				<td><a href="DataDeleteServlet?id=${bean.id }">delete</a></td>
+			</tr>
+		</c:forEach>
 	</table>
 </body>
 </html>

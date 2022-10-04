@@ -17,3 +17,23 @@ Weather App
         - editAccountCheck
         - adminPage
 
+
+ RYan hamilton
+
+ -index
+ -changecolour header based on weather
+ -search bar
+ use and implement openweather api
+
+ Tim Fitzgerald
+
+ -Temperature converter/relevant page
+ -recent searches/links
+ -index session
+
+ Binglin Fan
+
+ -Feedback
+ -Feedback manager
+ -Feedback lookup
+

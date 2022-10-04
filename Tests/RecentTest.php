@@ -3,13 +3,16 @@
 namespace Tests;
 use PHPUnit\Framework\TestCase;
 
-class recentTest extends TestCase
+class RecentTest extends TestCase
 {
-    public function testRecent(): void
+    public function testBasicTest(): void
     {
-        $response = $this->withSession(['foo' => 'bar'])->get('/');
-        $response->assertStatus(200);
+
+
+        self::assertTrue()->assertStatus(200);
     }
+
+
 }
 
 

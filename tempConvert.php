@@ -148,6 +148,8 @@ function getKelvin($valueConvert, $convertType) {
 //if(isset($valueConvert)||isset($convertType)){
     //converts all values when clicked and reports them
     if(isset($_POST['valueConvert'])){
+        //input verification for security
+        if(is_numeric($_POST['valueConvert']) && ctype_alpha($_POST['convertType']) == true){
             $valueConvert = $_POST['valueConvert'];
             $convertType = $_POST['convertType'];
             $Fah = getFahrenheit($valueConvert, $convertType);
@@ -155,6 +157,11 @@ function getKelvin($valueConvert, $convertType) {
             $Kel = getKelvin($valueConvert, $convertType);
 
             echo "Your units: $Fah fahrenheit, $Cel celsius and $Kel kelvin!";
+        }
+        //handling improper inputs
+        else{
+            echo "Please only insert numbers!";
+        }           
     }
     //if no click has been made, or just moved to the page, request input
     elseif(empty($valueConvert)) {

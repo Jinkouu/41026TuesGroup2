@@ -24,11 +24,11 @@ steps:
 
 
 # ignore the error with the name CopyFiles@2 and the targetFolder thing, it works
-- task: CopyFiles@2
-  inputs:
-    targetFolder: '$(Build.ArtifactStagingDirectory)'    
+#- task: CopyFiles@2
+#  inputs:
+#    targetFolder: '$(Build.ArtifactStagingDirectory)'    
  
-- task: PublishBuildArtifacts@1    
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
+#- task: PublishBuildArtifacts@1    
+#  displayName: 'Publish Artifact: drop'
+#  inputs:
+#    PathtoPublish: '$(build.artifactstagingdirectory)'

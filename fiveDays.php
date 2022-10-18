@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 
     //checking if input is empty
    
@@ -6,6 +9,30 @@
         $_GET['city']='beijing';
     }
     if ($_GET['city']){
+        if(!$_SESSION["first"]){
+            $_SESSION["first"] = $_GET['city'];
+        }
+        else if(!$_SESSION["second"]){
+            $_SESSION["second"] = $_GET['city'];
+        }
+        else if(!$_SESSION["third"]){
+            $_SESSION["third"] = $_GET['city'];
+        }
+        else if(!$_SESSION["fourth"]){
+            $_SESSION["fourth"] = $_GET['city'];
+        }
+        else if(!$_SESSION["fifth"]){
+            $_SESSION["fifth"] = $_GET['city'];
+        }
+        //if all slots are full, shuffle forwards
+        else if($_SESSION["fifth"]){
+            $_SESSION["first"] = $_SESSION["second"];
+            $_SESSION["second"] = $_SESSION["third"];
+            $_SESSION["third"] = $_SESSION["fourth"];
+            $_SESSION["fourth"] = $_SESSION["fifth"];
+            $_SESSION["fifth"] = $_GET['city'];
+        }
+
          $apiData2 = file_get_contents("http://api.openweathermap.org/data/2.5/forecast?q=".
             $_GET['city']."&appid=3794141fe0cac15a9225a73d70d21ce8");
     $seven =json_decode($apiData2, true);
@@ -49,6 +76,9 @@
                 padding-left: 830px;
                 float: left;
             }
+            .bottom{
+                padding-top: 1750px;
+            }
 .container{height: 50px}
         </style>
     </head>
@@ -61,11 +91,11 @@
                     <div class="hyperlinks">
                             <a href="index.php">Home</a>
                             <a href="daily.php">Daily</a>
-
                             <a href="fiveDays.php">5-Days</a>
                             <a href="#">Monthly</a>
+                            <a href="tempConvert.php">Temperature Converter</a>
                             <a href="weathermap.php">Weather Map</a>
-                            <a href="feedback.php">Feedback</a>
+                            <a href="http://test1.ouoau.com:8233/feedback.jsp">Feedback</a>
                     </div>
                    
                 </div>
@@ -175,9 +205,60 @@
      
      <hr>
     </div>
+    
 <?php endif?>
 <?php $i++;?>
 <?php endforeach ?>
 </div>
-                  
+<section>
+            <h2 class="bottom">Recent Searches:</h2>
+            <?php 
+            //recent searches section
+
+            //gets recent searches and places into a holder variable
+            if (isset($_SESSION["first"]))
+                $hold1 = $_SESSION["first"];
+            if (isset($_SESSION["second"]))    
+                $hold2 = $_SESSION["second"];
+            if (isset($_SESSION["third"]))
+                $hold3 = $_SESSION["third"];
+            if (isset($_SESSION["fourth"]))
+                $hold4 = $_SESSION["fourth"];
+            if (isset($_SESSION["fifth"]))
+                $hold5 = $_SESSION["fifth"];
+
+            //display recent searches if available
+            if (isset($_SESSION["first"])){
+                echo $_SESSION["first"];}
+            if (isset($_SESSION["second"])){
+                echo ", "; echo $_SESSION["second"];}
+            if (isset($_SESSION["third"])){
+                echo ", "; echo $_SESSION["third"];}
+            if (isset($_SESSION["fourth"])){
+                echo ", "; echo $_SESSION["fourth"];}
+            if (isset($_SESSION["fifth"])){
+                echo ", "; echo $_SESSION["fifth"]; }echo nl2br ("\n");
+                ?>
+            
+            
+            <?php 
+            //links for the above and verification of inputs for security
+            if(isset($hold1) && ctype_alpha($hold1)) { ?>
+            <a href="daily.php?city=<?php echo $hold1 ?>&submit=">Re-search 1</a>
+            <?php } ?>
+            <?php if(isset($hold2) && ctype_alpha($hold2)) { ?>
+            - <a href="daily.php?city=<?php echo $hold2 ?>&submit=">Re-search 2</a>
+            <?php } ?>
+            <?php if(isset($hold3) && ctype_alpha($hold3)) { ?>
+            - <a href="daily.php?city=<?php echo $hold3 ?>&submit=">Re-search 3</a>
+            <?php } ?>
+            <?php if(isset($hold4) && ctype_alpha($hold4)) { ?>
+            - <a href="daily.php?city=<?php echo $hold4 ?>&submit=">Re-search 4</a>
+            <?php } ?>
+            <?php if(isset($hold5) && ctype_alpha($hold5)) { ?>
+            - <a href="daily.php?city=<?php echo $hold5 ?>&submit=">Re-search 5</a>
+            <?php } ?>
+        </section>
+            </body>
+                   
 

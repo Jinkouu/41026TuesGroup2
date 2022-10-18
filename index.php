@@ -105,7 +105,7 @@ if(array_key_exists('submit', $_GET)){
                 <h1>Weather</h1>
                 <div class="container">
                     <div class="hyperlinks">
-                            <a href="index.php">Home test test test</a>
+                            <a href="index.php">Home</a>
                             <a href="daily.php">Daily</a>
                             <a href="fiveDays.php">5-Days</a>
                             <a href="#">Monthly</a>

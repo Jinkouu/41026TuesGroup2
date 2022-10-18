@@ -27,7 +27,31 @@ steps:
     azureSubscription: 's'
     appType: 'webApp'
     WebAppName: 'calm-flower-5dbf22b9987a4a5a8a3a04cb7e806dc2'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/_Jinkouu_41026TuesGroup2/*'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/_Jinkouu_41026TuesGroup2/'
+
+- script: |
+    sudo update-alternatives --set php /usr/bin/php$(phpVersion)
+    sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
+    sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
+    sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
+    sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
+    php -version
+  displayName: 'Use PHP version $(phpVersion)'
+
+- script: composer install --no-interaction --prefer-dist
+  displayName: 'composer install'
+  
+- script: ./phpunit
+  displayName: 'Run tests with phpunit'
+
+- script: ./vendor/bin/phpunit
+  displayName: 'Run tests with phpunit attempt 2'
+
+- script: ./$(System.DefaultWorkingDirectory)/_Jinkouu_41026TuesGroup2/phpunit
+  displayName: 'Run tests with phpunit 3'
+
+- script: ./$(System.DefaultWorkingDirectory)/_Jinkouu_41026TuesGroup2/vendor/bin/phpunit
+  displayName: 'Run tests with phpunit attempt 4'
 
 # ignore the error with the name CopyFiles@2 and the targetFolder thing, it works
 #- task: CopyFiles@2

@@ -94,17 +94,17 @@ function Convert($valueConvert, $convertType)
 //fahrenheit converter
 function getFahrenheit($valueConvert, $convertType) {
     if($convertType == "fahrenheit") {        
-        $formatted_number = round_to_2dp($valueConvert);
+        $formatted_number = round($valueConvert,2);
         return $formatted_number;
     }
     elseif($convertType == "celsius"){
         $hold = (($valueConvert * (9/5)) + (32));
-        $formatted_number = round_to_2dp($hold);
+        $formatted_number = round($hold,2);
         return $formatted_number;
     }
     elseif($convertType == "kelvin"){
         $hold = ((($valueConvert - 273.15) * (9/5)) + (32));
-        $formatted_number = round_to_2dp($hold);
+        $formatted_number = round($hold,2);
         return $formatted_number;
     }
 }
@@ -112,17 +112,17 @@ function getFahrenheit($valueConvert, $convertType) {
 //celsius converter
 function getCelsius($valueConvert, $convertType) {
     if($convertType == "celsius") {       
-        $formatted_number = round_to_2dp($valueConvert);
+        $formatted_number = round($valueConvert,2);
         return $formatted_number;
     }
     elseif($convertType == "fahrenheit"){
         $hold = (($valueConvert - 32) * (5/9));
-        $formatted_number = round_to_2dp($hold);
+        $formatted_number = round($hold,2);
         return $formatted_number;
     }
     elseif($convertType == "kelvin"){
         $hold =  ($valueConvert - 273.15);
-        $formatted_number = round_to_2dp($hold);
+        $formatted_number = round($hold,2);
         return $formatted_number;
     }
 }
@@ -130,17 +130,17 @@ function getCelsius($valueConvert, $convertType) {
 //kelvin converter
 function getKelvin($valueConvert, $convertType) {
     if($convertType == "kelvin") {
-        $formatted_number = round_to_2dp($valueConvert);
+        $formatted_number = round($valueConvert,2);
         return $formatted_number;
     }
     elseif($convertType == "celsius"){
         $hold = ($valueConvert + 273.15);
-        $formatted_number = round_to_2dp($hold);
+        $formatted_number = round($hold,2);
         return $formatted_number;
     }
     elseif($convertType == "fahrenheit"){
         $hold = ((($valueConvert - 32) * (5 / 9))+(273.15));
-        $formatted_number = round_to_2dp($hold);
+        $formatted_number = round($hold,2);
         return $formatted_number;
     }
 }

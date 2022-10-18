@@ -19,3 +19,20 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+  - task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.Repository.LocalPath)/target'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'SpringFramework_fullsources'
+    publishLocation: 'Container'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))

@@ -6,8 +6,10 @@ $password = "password0.";
 
 $db_name = "test";
 
-$conn = mysqli_connect($sname, $unmae, $password, $db_name);
+$conn = mysqli_init();
 
-if (!$conn){
+mysqli_real_connect($conn, $sname, $unmae, $password, $db_name, 3360);
+
+if (mysqli_connect_errno()){
     echo "Connection failed!";
 }

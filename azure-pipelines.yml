@@ -26,8 +26,8 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 's'
     appType: 'webApp'
-    WebAppName: 's'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    WebAppName: 'calm-flower-5dbf22b9987a4a5a8a3a04cb7e806dc2'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/41026TuesGroup2'
 
 # ignore the error with the name CopyFiles@2 and the targetFolder thing, it works
 - task: CopyFiles@2

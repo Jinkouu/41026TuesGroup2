@@ -1,11 +1,4 @@
 # Starter pipeline
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 's'
-    appType: 'webApp'
-    WebAppName: 's'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 
 # Start with a minimal pipeline that you can customize to build and deploy your code.
@@ -26,6 +19,15 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 's'
+    appType: 'webApp'
+    WebAppName: 's'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 # ignore the error with the name CopyFiles@2 and the targetFolder thing, it works
 - task: CopyFiles@2

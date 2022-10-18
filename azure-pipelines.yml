@@ -1,4 +1,11 @@
 # Starter pipeline
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 's'
+    appType: 'webApp'
+    WebAppName: 's'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 
 # Start with a minimal pipeline that you can customize to build and deploy your code.

@@ -45,3 +45,22 @@ Weather App
         -daily.php
         -fiveDays.php
 >>>>>>> 908da4a0a4a50b91d2997b4ed55ddd60caa2423c
+
+
+
+
+
+
+<?php 
+
+$sname = "localhost";
+$unmae = "root";
+$password = "";
+
+$db_name = "test_db";
+
+$conn = mysqli_connect($sname, $unmae, $password, $db_name);
+
+if (!$conn){
+    echo "Connection failed!";
+}

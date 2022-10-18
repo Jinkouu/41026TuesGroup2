@@ -1,8 +1,8 @@
 <?php 
 
-$sname = "localhost";
-$unmae = "root";
-$password = "";
+$sname = "41026database.mysql.database.azure.com";
+$unmae = "jonathan";
+$password = "password0.";
 
 $db_name = "test_db";
 

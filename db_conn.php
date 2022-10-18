@@ -4,7 +4,7 @@ $sname = "41026database.mysql.database.azure.com";
 $unmae = "jonathan";
 $password = "password0.";
 
-$db_name = "test_db";
+$db_name = "test";
 
 $conn = mysqli_connect($sname, $unmae, $password, $db_name);
 

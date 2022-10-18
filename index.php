@@ -105,7 +105,7 @@ if(array_key_exists('submit', $_GET)){
                 <h1>Weather</h1>
                 <div class="container">
                     <div class="hyperlinks">
-                            <a href="index.php">Homezz</a>
+                            <a href="index.php">Home</a>
                             <a href="daily.php">Daily</a>
                             <a href="fiveDays.php">5-Days</a>
                             <a href="#">Monthly</a>
@@ -196,20 +196,20 @@ if(array_key_exists('submit', $_GET)){
             
             
             <?php 
-            //links for the above 
-            if(isset($hold1)) { ?>
+            //links for the above and verification of inputs for security
+            if(isset($hold1) && ctype_alpha($hold1)) { ?>
             <a href="index.php?city=<?php echo $hold1 ?>&submit=">Re-search 1</a>
             <?php } ?>
-            <?php if(isset($hold2)) { ?>
+            <?php if(isset($hold2) && ctype_alpha($hold2)) { ?>
             - <a href="index.php?city=<?php echo $hold2 ?>&submit=">Re-search 2</a>
             <?php } ?>
-            <?php if(isset($hold3)) { ?>
+            <?php if(isset($hold3) && ctype_alpha($hold3)) { ?>
             - <a href="index.php?city=<?php echo $hold3 ?>&submit=">Re-search 3</a>
             <?php } ?>
-            <?php if(isset($hold4)) { ?>
+            <?php if(isset($hold4) && ctype_alpha($hold4)) { ?>
             - <a href="index.php?city=<?php echo $hold4 ?>&submit=">Re-search 4</a>
             <?php } ?>
-            <?php if(isset($hold5)) { ?>
+            <?php if(isset($hold5) && ctype_alpha($hold5)) { ?>
             - <a href="index.php?city=<?php echo $hold5 ?>&submit=">Re-search 5</a>
             <?php } ?>
         </section>

@@ -149,7 +149,7 @@ function getKelvin($valueConvert, $convertType) {
     //converts all values when clicked and reports them
     if(isset($_POST['valueConvert'])){
         //input verification for security
-        if(is_numeric($_POST['valueConvert']) && ctype_alpha($_POST['convertType']) == true){
+        if(is_numeric($_POST['valueConvert']) && ctype_alpha($_POST['convertType'])){
             $valueConvert = $_POST['valueConvert'];
             $convertType = $_POST['convertType'];
             $Fah = getFahrenheit($valueConvert, $convertType);

@@ -23,7 +23,6 @@
                     <a href="index.php">Home</a>
                     <a href="daily.php">Daily</a>
                     <a href="fiveDays.php">5-Days</a>
-                    <a href="#">Monthly</a>
                     <a href="tempConvert.php">Temperature Converter</a>
                     <a href="weathermap.php">Weather Map</a>
                     <a href="feedback.php">Feedback</a>
@@ -50,7 +49,7 @@
         <div class="homeContent">
             <h2>Admin Page</h2> 
 
-            <form action="adminEdit.php" method="POST">
+            <!--<form action="adminPageServlet.php" method="POST"> -->
                 <table class="adminTable">
                     <tr>
                         <th> ID </th>
@@ -72,12 +71,12 @@
                         <td> <?php echo $Row['username'] ?></td>
                         <td> <?php echo $Row['name'] ?></td>
                         <td> <?php echo $Row['level'] ?></td>
-                        <td><input type="submit" name="edit/<?php $Row['id'] ?>" value="Edit"></td>
-                        <td><input type="submit" name="delete/<?php $Row['id'] ?>" value="Delete"></td>
+                        <td><a href = "adminEdit.php?id=<?php echo $Row['id'] ?>" class="account-button">Edit</a></td>
+                        <td><a href = "adminDelete.php?id=<?php echo $Row['id'] ?>" class="account-button">Delete</a></td>
                     </tr>
                     <?php } ?>
                 </table>
-            </form>
+            <!--</form> -->
 
             <a href = "home.php" class="account-button">Back</a>
            

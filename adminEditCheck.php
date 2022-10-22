@@ -48,11 +48,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
             	          WHERE id='$id'";
             	mysqli_query($conn, $sql_2);
               
-            	header("Location: editAccount.php?success=Your details have been changed successfully");
+            	header("Location: adminEdit.php?id=$id?success=Your details have been changed successfully");
     	        exit();
 
             }else {
-            	header("Location: editAccount.php?error=Incorrect password");
+            	header("Location: editAccount.php?adminEdit.php?id=$id?error=Incorrect password");
     	        exit();
             }
 

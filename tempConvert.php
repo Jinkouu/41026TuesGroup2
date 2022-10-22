@@ -25,7 +25,6 @@
                         <a href="index.php">Home</a>
                         <a href="daily.php">Daily</a>
                         <a href="fiveDays.php">5-Days</a>
-                        <a href="#">Monthly</a>
                         <a href="tempConvert.php">Temperature Converter</a>
                         <a href="weathermap.php">Weather Map</a>
                         <a href="http://test1.ouoau.com:8233/feedback.jsp">Feedback</a>

@@ -77,8 +77,9 @@
                     <?php } ?>
                 </table>
             <!--</form> -->
-
+            <br>       
             <a href = "home.php" class="account-button">Back</a>
+            <a href = "adminCreate.php" class="account-button">New Account</a>
            
 
 
@@ -91,7 +92,7 @@
 <?php
     }
     else{
-        header("Location: login.php");
+        header("Location: home.php");
         exit();
     }
 ?>

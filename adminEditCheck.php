@@ -20,15 +20,15 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
       $name = validate($_POST['name']);
 
         if(empty($name)){
-            header("Location: editAccount.php?error=name is required");
+            header("Location: adminEdit.php?id=$id&error=name is required");
             exit();
           }
         else if(empty($np)){
-          header("Location: editAccount.php?error=New Password is required");
+          header("Location: adminEdit.php?id=$id&error=New Password is required");
     	  exit();
         }
         else if($np !== $c_np){
-          header("Location: editAccount.php?error=The confirmation password does not match");
+          header("Location: adminEdit.php?id=$id&error=The confirmation password does not match");
     	  exit();
         }
         else {
@@ -48,11 +48,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
             	          WHERE id='$id'";
             	mysqli_query($conn, $sql_2);
               
-            	header("Location: adminEdit.php?id=$id?success=Your details have been changed successfully");
+            	header("Location: adminEdit.php?id=$id&success=Your details have been changed successfully");
     	        exit();
 
             }else {
-            	header("Location: editAccount.php?adminEdit.php?id=$id?error=Incorrect password");
+            	header("Location: adminEdit.php?id=$id&error=Incorrect password");
     	        exit();
             }
 

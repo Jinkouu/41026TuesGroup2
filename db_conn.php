@@ -13,5 +13,6 @@ $conn = mysqli_init();
 mysqli_real_connect($conn, $sname, $unmae, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
 
 if (mysqli_connect_errno()){
-    echo "Connection failed!";
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    
 }

@@ -99,8 +99,9 @@ if(array_key_exists('submit', $_GET)){
     <body>
         <!-- navigation bar -->
         <header>
+            <!--change colour of the header will show the user the temperature status of the page -->
 
-            <nav style="background-color:<?=($tempCelsius>20 )?'ffff00':(($tempCelsius<5)?'4682B4':'')?>">
+            <nav style="background-color:<?=($tempCelsius>20 )?'#f3872f':(($tempCelsius<8)?'4682B4':'')?>">
 
                 <h1>Weather</h1>
                 <div class="container">
@@ -116,10 +117,10 @@ if(array_key_exists('submit', $_GET)){
                         <button class ="dropbtn"><span class="material-symbols-outlined">person</span></button>
                         <div class = "dropdown-content">
                             <?php
-                            if(!isset($_SESSION['id'])) { ?>    
+                            if(!isset($_SESSION['id'])) { ?>
                                 <a href="login.php">Login</a>
                                 <a href="register.php">Signup</a>
-                            <?php } 
+                            <?php }
                             else{ ?>
                                 <a href="home.php">Home</a>
                                 <a href="logout.php">Log out</a>
@@ -212,5 +213,57 @@ if(array_key_exists('submit', $_GET)){
             - <a href="index.php?city=<?php echo $hold5 ?>&submit=">Re-search 5</a>
             <?php } ?>
         </section>
+                <!--  This is the city search bar displaying a country added to the search proccess.    -->
+                    <!--  Thsi will allow the customer to know where exactly in the world they are located.  -->
+            <div class ="cityImages">
+                <?php
+                if ($_GET['city'] === 'Sydney') {
+                ?>
+                    <h3 style="text-align: center; color: #555b6e;font-size: 24px; font-weight: 600; letter-spacing: 3px;text-transform: uppercase;  padding-bottom: 10px;">Sydney</h3>
+                <img style="height: auto; width: auto; object-fit: contain" src="./temperatureHeaders/Sydney.jpeg" alt="....">
+               <?php }
+                elseif ($_GET['city'] === 'Moscow') {
+                    ?>
+                    <h3 style="text-align: center; color: #555b6e;font-size: 24px; font-weight: 600; letter-spacing: 3px;text-transform: uppercase;  padding-bottom: 10px;">Moscow</h3>
+                <img style="height: 100%; width: 100%; object-fit: contain" src="./temperatureHeaders/moscow.jpg" alt="....">
+                <?php }
+                elseif ($_GET['city'] === 'Dubai') { //usong the api city location array in order to match 
+                    ?>
+                    <h3 style="text-align: center; color: #555b6e;font-size: 24px; font-weight: 600; letter-spacing: 3px;text-transform: uppercase;  padding-bottom: 10px;">Dubai</h3>
+                    <img style="height: 100%; width: auto; object-fit: contain" src="./temperatureHeaders/dubai.jpg" alt="....">
+                <?php }
+                elseif ($_GET['city'] === 'London') {
+                    ?>
+                    <h3 style="text-align: center; color: #555b6e;font-size: 24px; font-weight: 600; letter-spacing: 3px;text-transform: uppercase;  padding-bottom: 10px;">London</h3>
+                    <img style="height: auto; width: auto; object-fit: contain" src="./temperatureHeaders/london.jpg" alt="....">
+                <?php }
+                elseif ($_GET['city'] === 'Beijing') {
+                    ?>
+                    <h3 style="text-align: center; color: #555b6e;font-size: 24px; font-weight: 600; letter-spacing: 3px;text-transform: uppercase;  padding-bottom: 10px;">Beijing</h3>
+                    <img style="height: auto; width: auto; object-fit: contain" src="./temperatureHeaders/beijing.jpg" alt="....">
+                <?php }
+                elseif ($_GET['city'] === 'Shanghai') {
+                    ?>
+                    <h3 style="text-align: center; color: #555b6e;font-size: 24px; font-weight: 600; letter-spacing: 3px;text-transform: uppercase;  padding-bottom: 10px;">Shanghai</h3>
+                    <img style="height: auto; width: auto; object-fit: contain" src="./temperatureHeaders/shanghai.jpg" alt="....">
+                <?php }
+                elseif ($_GET['city'] === 'Paris') {
+                    ?>
+                    <h3 style="text-align: center; color: #555b6e;font-size: 24px; font-weight: 600; letter-spacing: 3px;text-transform: uppercase;  padding-bottom: 10px;">Paris</h3>
+                    <img style="height: auto; width: auto; object-fit: contain" src="./temperatureHeaders/paris.jpg" alt="....">
+                <?php }
+                elseif ($_GET['city'] === 'Amsterdam') {
+                    ?>
+                    <h3 style="text-align: center; color: #555b6e;font-size: 24px; font-weight: 600; letter-spacing: 3px;text-transform: uppercase;  padding-bottom: 10px;">Amsterdam</h3>
+                    <img style="height: 70%; width: 100%; object-fit: contain" src="./temperatureHeaders/amsterdam.jpg" alt="....">
+                <?php }
+
+                ?>
+
+
+
+
+
+            </div>
     </body>
 </html>

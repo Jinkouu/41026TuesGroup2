@@ -178,7 +178,9 @@ nav{
     background-color: #89b0ae;
     padding: 16px 32px;
     border-bottom: 3px;
+
 }
+
 nav.cold{
     position: fixed;
     top: 0;
@@ -188,6 +190,7 @@ nav.cold{
     background-color: #00008b;
     padding: 16px 32px;
     border-bottom: 3px;
+    background-image: url("temperatureHeaders/rainHeader.jpeg");
 }
 
 nav.warm{
@@ -199,7 +202,10 @@ nav.warm{
     background-color: #ffff00;
     padding: 16px 32px;
     border-bottom: 3px;
+    background-image: url("temperatureHeaders/sunHeader.jpeg");
 }
+
+
 
 .hyperlinks{
     

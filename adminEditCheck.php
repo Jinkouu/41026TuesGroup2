@@ -7,6 +7,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
     $id = $_GET['id'];
     if (isset($_POST['adminLevel']) && isset($_POST['np']) && isset($_POST['name']) && isset($_POST['c_np'])) {
 
+      //validates data and removes unecessary text
     	function validate($data){
            $data = trim($data);
     	   $data = stripslashes($data);
@@ -43,6 +44,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
             //checks if there is a corresponding account in the database
             if(mysqli_num_rows($result) === 1){
             
+              //updates record
             	$sql_2 = "UPDATE users
             	          SET password='$np', name='$name', level='$level'
             	          WHERE id='$id'";

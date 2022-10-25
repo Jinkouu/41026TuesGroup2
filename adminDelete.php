@@ -6,7 +6,7 @@
    //gets id from url
    $id = $_GET['id'];
 
-
+// deletes record form database
     $sql2 = "DELETE
             FROM users
             WHERE id='$id'";

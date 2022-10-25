@@ -57,7 +57,7 @@
             </div>
         </nav>
         <!-- navigation bar -->
-
+        <!-- account edit form -->
         <div class="content">
             <form action="adminEditCheck.php?id=<?php echo $id; ?>" method="post">
                 <h2>Change Account Details</h2>

@@ -129,18 +129,17 @@ Weather App
         - temp. injection security
 
 
- Binglin Fan
+        Binglin Fan
+        - Feedback
+        - Feedback manager
+        - Feedback lookup
 
- -Feedback
- -Feedback manager
- -Feedback lookup
 
-=======
-    Jiaxing Liu:
-        -font.css
-        -style.css
-        -daily.php
-        -fiveDays.php
+        Jiaxing Liu:
+        - font.css
+        - style.css
+        - daily.php
+        - fiveDays.php
 
 
 

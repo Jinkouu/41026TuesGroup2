@@ -106,7 +106,7 @@ Weather App
         - adminPage
 
 
-   # Ryan Hamilton:
+        Ryan Hamilton:
         - design.css
         - index 
         - changecolour header based on weather

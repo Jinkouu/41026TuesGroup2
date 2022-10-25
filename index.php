@@ -84,6 +84,7 @@ if(array_key_exists('submit', $_GET)){
         <link rel="stylesheet" href="design.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Zen+Loop:ital@1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <title>Main Page</title>
         <style>
             .temperature{
@@ -133,16 +134,29 @@ if(array_key_exists('submit', $_GET)){
                     <form action="" method="GET">
                     <label for="city">Enter city name</label>
                     <p><input type="text" name="city" id="city" placeholder="City Name"></p>
-                    <button type="submit" name="submit" class="btn btn-success">Submit Now</button>
+                    <button type="submit" name="submit" class="btn btn-success">Submit Now</button> 
+
+                    <!--save location to database -->
+                    <?php
+                        if(isset($weather) && isset($_SESSION['id'])){
+                    ?>
+                            <a href="saveLocation.php?city=<?php echo $_GET['city'] ?>" ><span class="material-symbols-outlined">star</span></a> <br>
+                    <?php
+                        }
+                    ?>
+                    <!--save location to database -->
+                    
 <!--                        <img src="icons/${icon}.png">;-->
 <!---->
 <!--                    <div class="weather-icon"><img src="icons/unknown.png" /></div>-->
                     <div class="output mt-3">
+                    <br>
                         <?php
                         $var = 'let locationIcon = document.querySelector(\'.weather-icon\');
                                 const {icon} = data.weather[0]';
 
                                 if(isset($weather)){
+                                    
                                     echo $weather;
                                 }
                                 else{

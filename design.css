@@ -6,6 +6,16 @@
     ffd6ba login manager colour
 */
 
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
 #map-canvas {
     position: relative;
     align-self: center;

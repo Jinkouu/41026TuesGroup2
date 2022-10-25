@@ -57,7 +57,23 @@
 
             <a href = "logout.php" class="account-button">Logout</a>
             
-           
+           <br><br><br><a>Saved locations:</a> <br><br>
+           <?php 
+                include "db_conn.php";
+
+                $id = $_SESSION['id'];
+                $sql = "SELECT * 
+                        FROM saved 
+                        WHERE userid = '$id'";
+                $Table = mysqli_query($conn, $sql);
+
+                while($Row = mysqli_fetch_array($Table)){
+                    ?>
+                    <a class = "account-button" href = "index.php?city= <?php echo $Row['location'] ?>&submit="> <?php echo $Row['location'] ?>
+                    <?php  
+                }
+           ?>
+
 
 
         </div>

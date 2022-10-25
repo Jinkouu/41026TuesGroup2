@@ -179,7 +179,7 @@ if(array_key_exists('submit', $_GET)){
         </nav>
 
         <section>
-            <br><h2 class="bottom">Recent Searches:</h2>
+            <br><h2 class="bottom">Changed:</h2>
             <?php 
             //recent searches section
 

@@ -92,6 +92,8 @@ Weather App
     Unit tests are placed in the Tests folder
     vendor, composer and phpunit is related to the testing application we used, PHPunit.
 
+## Developers/Contributions
+
      Jonathan Nguyen:
         - design.css
         - weathermap

@@ -16,7 +16,7 @@
         $result = mysqli_query($conn, $sql);
 
         if(mysqli_num_rows($result) > 0){
-            header("Location: index.php");
+            header("Location: index.php?city=&submit=");
             exit();
         }
         else{
@@ -27,7 +27,7 @@
                 exit();
             }
             else{
-                header("Location: index.php");
+                header("Location: index.php?city=&submit=");
                 exit();
             }
         }

@@ -117,11 +117,15 @@ Weather App
         - location photos
 
 
- Tim Fitzgerald
+        Tim Fitzgerald
+        - Temperature converter/relevant page
+        - recent searches/links
+        - index session
+        - expansion of daily
+        - expansion of fiveDays
+        - hyperlink security
+        - temp. injection security
 
- -Temperature converter/relevant page
- -recent searches/links
- -index session
 
  Binglin Fan
 

@@ -1,7 +1,7 @@
 
 <img src="./temperatureHeaders/logo.png" alt="Logo of the project" align="right">
 
-# Name of the project &middot; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
+# Weather App; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 
 
 A brief description of your project, what it is used for.
@@ -92,7 +92,7 @@ Weather App
     Unit tests are placed in the Tests folder
     vendor, composer and phpunit is related to the testing application we used, PHPunit.
 
-    Jonathan Nguyen:
+     Jonathan Nguyen:
         - design.css
         - weathermap
         - register
@@ -106,13 +106,16 @@ Weather App
         - adminPage
 
 
- Ryan Hamilton
+   # Ryan Hamilton:
+        - design.css
+        - index 
+        - changecolour header based on weather
+        - search bar
+        - use and implement openweather api
+        - readmefile
+        - home
+        - location photos
 
- - index
- - changecolour header based on weather
- - search bar
- - use and implement openweather api
- - readme file
 
  Tim Fitzgerald
 
@@ -132,7 +135,7 @@ Weather App
         -style.css
         -daily.php
         -fiveDays.php
->>>>>>> 908da4a0a4a50b91d2997b4ed55ddd60caa2423c
+
 
 
 

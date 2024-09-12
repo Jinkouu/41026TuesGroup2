@@ -1,4 +1,9 @@
 # Starter pipeline
+- task: CmdLine@2
+  inputs:
+   - task: CmdLine@2
+  inputs:
+    script: '$ phpunit test1Test'
 
 
 # Start with a minimal pipeline that you can customize to build and deploy your code.
